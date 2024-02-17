@@ -40,7 +40,7 @@ let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element => {
   let boxtext = element.querySelector('.boxtext');
   element.addEventListener('click', (e) => {
-    if (boxtext.innerText === '') {
+    if (boxtext.innerText === '' && !gameover) {
       boxtext.innerText = turn;
       turn = changeTurn();
       checkWin();
@@ -58,7 +58,6 @@ reset.addEventListener('click', () => {
   Array.from(boxtexts).forEach(element => {
     element.innerText = "";
   });
-  turn = "X";
   gameover = false;
   document.querySelector(".info").innerText =
     "Turn for " + turn;
